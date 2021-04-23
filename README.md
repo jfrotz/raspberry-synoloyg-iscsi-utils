@@ -1,10 +1,10 @@
 # raspberry-synoloyg-iscsi-utils
-Perl scripts to perform iSCSI discovery, LVM creation for /, /var, and /home given standardized (default) LUNs, mirroring, mounting unmounting and destruction scripts.
+Perl scripts to perform iSCSI LUN discovery, LVM creation for /, /var, and /home given standardized (default) LUNs, mirroring, mounting unmounting and destruction scripts.
 
 # Applicability
 * This git repo will be useful to you if:
   * You have at least 2 Raspberry Pis AND an iSCSI server (in my case a Synology iSCSI Manager).
-  * You want each Raspberryuy Pi to be have machine-specific storage mounts for /, /home and /var.
+  * You want each Raspberryuy Pi to have machine-specific storage mounts for /, /home and /var.
   * You want to have /, /home and /var on LVM partitions so that you can grow the partitions as necessary (within the limits of your pre-allocated LUN).
   * You want to change the personality of a given Raspberry Pi by inserting an SD card that self-identifies as a completely different host which then has a dedicated personality in /, /home and /var.
 
@@ -50,6 +50,14 @@ Perl scripts to perform iSCSI discovery, LVM creation for /, /var, and /home giv
 * Dedicated storage, such as iSCSI LUNs, makes it very easy to uniquely install distinct debian packages on each Raspberry Pi instance.
 * Dedicated storage provides ability for mounting read-only LUNs which are mapped to multiple Raspberry Pis, but that is not part of this project's default support.
 * Dedicated storage provides ability to mount non-default read-write LUNs but these become tricky and are not part of this project's default support.
+
+# DEFINITIONS
+* SAN - Storage Attached Networking - The current marketing space for iSCSI LUNs.
+* NAS - Network Attached Storage - The current marketing space for systems like Synology, QNap, FreeNAS and the like.
+* NFS - Network File System - Shared file systems, typically simple to configure and use.
+* iSCSI - Internet Small Computer Storage Interface
+* LUN - Logical Unit Number - An addressable block of storage in iSCSI architecture.
+* LVM - Logical Volume Manager - Linux LVM provides an abstraction layer above the physical storage supporting on-the-fly growth (and reduction through copy-off, resize, copy-back operations).
 
 # DISCLAIMER
 * These perl scripts are provided and coded to give you an understanding into the commands needed to do these operations by hand, but to do them in the proper sequence so that you don't have to do them by hand.
