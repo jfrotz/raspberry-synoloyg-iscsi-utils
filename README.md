@@ -3,7 +3,7 @@ Perl scripts to perform iSCSI discovery, LVM creation for /, /var, and /home giv
 
 # Applicability
 * This git repo will be useful to you if:
-  * Tou have at least 2 Raspberry Pis AND an iSCSI server (in my case a Synology iSCSI Manager).
+  * You have at least 2 Raspberry Pis AND an iSCSI server (in my case a Synology iSCSI Manager).
   * You want each Raspberryuy Pi to be have machine-specific storage mounts for /, /home and /var.
   * You want to have /, /home and /var on LVM partitions so that you can grow the partitions as necessary (within the limits of your pre-allocated LUN).
   * You want to change the personality of a given Raspberry Pi by inserting an SD card that self-identifies as a completely different host which then has a dedicated personality in /, /home and /var.
