@@ -21,25 +21,25 @@ Perl scripts to perform iSCSI LUN discovery, LVM creation for /, /var, and /home
 * 10G spare to re-allocate as needed when a 50G LUN is allocated.
 
 # Raspberry Pi Commands
-1. `perl iscsi-discovery.pl` - Discover the Synology iSCSI Manager, connect and eliminate all interfaces except the fully qualified hostname on a single network.
-2. `perl iscsi-create.pl` - Create the LVM partitions rootfs, homefs and varfs.
-3. `perl iscsi-copy.pl` - Mirror your current /, /home, and /var to the LVM partitions rootfs, homefs and varfs, then mount those LVM partitions into place.
-4. `perl iscsi-report.pl` - Report how the SD card, the iSCSI LUN and LVM partitions are mapped into /dev.
+1. `perl iscsi-discovery.pl` ## Discover the Synology iSCSI Manager, connect and eliminate all interfaces except the fully qualified hostname on a single network.
+2. `perl iscsi-create.pl` ## Create the LVM partitions rootfs, homefs and varfs.
+3. `perl iscsi-copy.pl` ## Mirror your current /, /home, and /var to the LVM partitions rootfs, homefs and varfs, then mount those LVM partitions into place.
+4. `perl iscsi-report.pl` ## Report how the SD card, the iSCSI LUN and LVM partitions are mapped into /dev.
 
 # Rebooting
-1. `perl iscsi-umount.pl` - Disconnect the LUN before rebooting.
+1. `perl iscsi-umount.pl` ## Disconnect the LUN before rebooting.
 2. `perl iscsi-report.pl`
 3. `sudo reboot`
 4. `perl iscsi-report.pl`
 
 # After Booting
 1. `perl iscsi-report.pl`
-2. `perl iscsi-mount.pl` - Reconnect the LUN.
+2. `perl iscsi-mount.pl` ## Reconnect the LUN.
 3. `perl iscsi-report.pl`
 
 # Destruction and Recreation
 1. `perl iscsi-report.pl`
-2. `perl iscsi-destroy.pl` - Unravel the LVM patitions for subsequent reconstruction.
+2. `perl iscsi-destroy.pl` ## Unravel the LVM patitions for subsequent reconstruction.
 3. `perl iscsi-report.pl`
 4. `sudo reboot`
 5. `perl iscsi-create.pl`
